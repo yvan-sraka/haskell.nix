@@ -240,3 +240,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: "nix-tools build"
         run: cd ./nix-tools && .buildkite/nix-tools-build.sh
+
+  nixprof:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Run tests with ghc8107: Profile flakes development shell ..."
+        run: nix shell github:Kha/nixprof -c ./test/tests.sh ghc8107 nixprof
