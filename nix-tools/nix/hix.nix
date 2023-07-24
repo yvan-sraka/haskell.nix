@@ -1,4 +1,4 @@
-{pkgs, config, ...}@projectArgs: {
+{pkgs, config, ...}: {
   name = "nix-tools";
   materialized = ../../materialized + "/${config.compiler-nix-name}/nix-tools";
 

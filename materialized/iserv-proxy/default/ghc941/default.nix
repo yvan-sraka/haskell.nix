@@ -58,7 +58,7 @@
           };
         };
       };
-  extras = hackage:
+  extras = _hackage:
     { packages = { iserv-proxy = ./.plan.nix/iserv-proxy.nix; }; };
   modules = [
     ({ lib, ... }:

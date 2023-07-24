@@ -81,7 +81,7 @@
           };
         };
       };
-  extras = hackage:
+  extras = _hackage:
     { packages = { hadrian = ./.plan.nix/hadrian.nix; }; };
   modules = [
     ({ lib, ... }:

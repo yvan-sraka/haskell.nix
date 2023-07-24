@@ -58,12 +58,6 @@ in {
                 };
             };
             sphinx = with final.buildPackages; (python3Packages.sphinx_1_7_9 or python3Packages.sphinx);
-            hsc2hs-align-conditionals-patch = final.fetchpatch {
-                url = "https://git.haskell.org/hsc2hs.git/patch/738f3666c878ee9e79c3d5e819ef8b3460288edf";
-                sha256 = "0plzsbfaq6vb1023lsarrjglwgr9chld4q3m99rcfzx0yx5mibp3";
-                extraPrefix = "utils/hsc2hs/";
-                stripLen = 1;
-            };
             D5123-patch = final.fetchpatch rec { # https://phabricator.haskell.org/D5123
                 url = "http://tarballs.nixos.org/sha256/${sha256}";
                 name = "D5123.diff";
@@ -81,7 +75,6 @@ in {
                 versionLessThan = ver: builtins.compareVersions ver version == 1;
                 # Returns true iff this derivation's version is greater than or equal to ver.
                 versionAtLeast = ver: !versionLessThan ver;
-                from = start: final.lib.optional (versionAtLeast start);
                 fromUntil = start: end: final.lib.optional (versionAtLeast start && versionLessThan end);
                 until = end: final.lib.optional (versionLessThan end);
                 always = final.lib.optional true;

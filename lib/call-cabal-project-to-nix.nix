@@ -1,4 +1,4 @@
-{ pkgs, runCommand, cacert, index-state-hashes, haskellLib }@defaults:
+{ pkgs, runCommand, cacert, index-state-hashes, haskellLib }:
 { name          ? src.name or null # optional name for better error messages
 , src
 , materialized-dir ? ../materialized
@@ -147,8 +147,6 @@ in let
     if index-state != null
     then index-state
     else pkgs.lib.last (builtins.attrNames index-state-hashes);
-
-  pkgconfPkgs = import ./pkgconf-nixpkgs-map.nix pkgs;
 
   # If a hash was not specified find a suitable cached index state to
   # use that will contain all the packages we need.  By using the

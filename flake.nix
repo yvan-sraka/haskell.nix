@@ -105,7 +105,7 @@
             overlays = [ allOverlays.combined ]
               ++ (if checkMaterialization then
                 [
-                  (final: prev: {
+                  (_final: prev: {
                     haskell-nix = prev.haskell-nix // {
                       checkMaterialization = true;
                     };

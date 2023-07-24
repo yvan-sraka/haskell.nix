@@ -66,7 +66,7 @@
           };
         };
       };
-  extras = hackage:
+  extras = _hackage:
     {
       packages = {
         ghc = ./.plan.nix/ghc.nix;
