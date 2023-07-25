@@ -222,6 +222,7 @@ fi
 
 if [ "$TESTS" == "nixprof" ]; then
   printf "*** Profile flakes development shell ...\n" >& 2
+  rm result ; nix-collect-garbage -d
   nixprof record nix build $NIX_BUILD_ARGS \
      --accept-flake-config \
      -I . -I .. \
