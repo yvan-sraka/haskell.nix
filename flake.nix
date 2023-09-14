@@ -94,6 +94,8 @@
 
       inherit (nixpkgs) lib;
 
+      unusedFooBar = 42;
+
       traceNames = prefix: builtins.mapAttrs (n: v:
         if builtins.isAttrs v
           then if v ? type && v.type == "derivation"
